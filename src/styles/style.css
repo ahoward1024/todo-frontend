@@ -1,0 +1,124 @@
+body {
+  background: #222;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+a:link {
+  color: deepskyblue;
+}
+
+a:visited {
+  color: darkorchid;
+}
+
+a:hover {
+  color: yellow;
+}
+
+a:active {
+  color: red;
+}
+
+.Header {
+  text-align: center;
+}
+
+.HeaderItem {
+  display: inline-block;
+  width: 15%;
+}
+
+.H1-Animation {
+  animation: SlideFromLeftAndFadeIn 0.5s ease-in-out;
+  text-align: center;
+}
+
+.Paragraph-Animation {
+  animation: SlideFromLeftAndFadeIn 0.6s ease-in-out;
+  text-align: left;
+  width: 75%;
+}
+
+.AddTodo {
+  animation: SlideFromLeftAndFadeIn 0.6s ease-in-out;
+  text-align: left;
+}
+
+.AddTodoInput {
+  font-size: 24px;
+  border: none;
+  border-radius: 6px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  width: 11em;
+}
+
+.AddTodoButton {
+  font-size: 24px;
+  border: none;
+  border-radius: 6px;
+}
+
+.CheckboxCheckAll {
+  animation: SlideFromLeftAndFadeIn 0.7s ease-in-out;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.Todo {
+  text-align: left;
+}
+
+.TodoItem-Animate {
+  animation: SlideDownAndFadeIn 0.3s ease-in-out;
+}
+
+.Server-Message-Animation {
+  animation: SlideFromLeftAndFadeIn 0.8s ease-in-out;
+  text-align: center;
+  width: 75%;
+}
+
+.DropDatabase {
+  color: red;
+  align: center;
+}
+
+@keyframes SlideFromLeftAndFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-100em, 0);
+  }
+  100% {
+    opacity: 100;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes SlideDownAndFadeInDelayed {
+  0% {
+    opacity: 0;
+    transform: translate(0, -1em);
+  }
+  25% {
+    opacity: 0;
+    transform: translate(0, -1em);
+  }
+  100% {
+    opacity: 100;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes SlideDownAndFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, -1em);
+  }
+  100% {
+    opacity: 100;
+    transform: translate(0, 0);
+  }
+}
