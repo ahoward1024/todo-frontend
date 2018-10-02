@@ -1,7 +1,9 @@
-const urlGet = 'http://localhost:5000/todos.get';
-const urlAdd = 'http://localhost:5000/todos.add';
-const urlToggle = 'http://localhost:5000/todos.toggle';
-const urlToggleAll = 'http://localhost:5000/todos.toggleall';
+import config from '../config';
+
+const urlGet = config.TODO_URL_GET;
+const urlAdd = config.TODO_URL_ADD;
+const urlToggle = config.TODO_URL_TOGGLE;
+const urlToggleAll = config.TODO_URL_TOGGLEALL;
 
 export function fetchGetState() {
   return fetch(urlGet, {'method': 'GET'});

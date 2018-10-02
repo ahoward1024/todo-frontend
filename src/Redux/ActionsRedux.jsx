@@ -51,7 +51,7 @@ export function requestGetState() {
   return dispatch => {
     return fetchGetState()
     .then(response => {
-      if (response.status !== 200) {
+      if (response.ok === false) {
         throw Error(response.statusText);
       }
 
@@ -73,7 +73,7 @@ export function requestAddTodo(text) {
 
     return fetchNewTodo(todo)
     .then(response => {
-      if (response.status !== 200) {
+      if (response.ok === false) {
         throw Error(response.statusText);
       }
 
@@ -90,7 +90,7 @@ export function requestToggleTodo(id, completed) {
   return dispatch => {
     return fetchToggleTodo(id, completed)
     .then(response => {
-      if (response.status !== 200) {
+      if (response.ok === false) {
         throw Error(response.statusText);
       }
 
@@ -106,7 +106,7 @@ export function requestToggleAll(completed) {
   return dispatch => {
     return fetchToggleAll(completed)
     .then(response => {
-      if (response.status !== 200) {
+      if (response.ok === false) {
         throw Error(response.statusText);
       }
 

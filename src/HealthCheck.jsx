@@ -1,6 +1,7 @@
 import React from 'react';
+import config from './config';
 
-const URL = 'http://localhost:5000/healthcheck';
+const URL = config.TODO_URL_HEALTHCHECK;
 const successMessage = '✔️ The server is up! 👌';
 
 class HealthCheck extends React.Component {
