@@ -18,25 +18,28 @@ function successGetState(state) {
   };
 }
 
-function successAddTodo(todo) {
+function successAddTodo(json) {
   return {
     'type': SUCCESS_ADD_TODO,
-    todo
+    'id': json.id,
+    'text': json.text,
+    'time': json.time,
+    'completed': json.completed
   };
 }
 
-function successToggleTodo(id, completed) {
+function successToggleTodo(json) {
   return {
     'type': SUCCESS_TOGGLE_TODO,
-    id,
-    completed
+    'id': json.id,
+    'completed': json.completed
   };
 }
 
-function successToggleAll(completed) {
+function successToggleAll(json) {
   return {
     'type': SUCCESS_TOGGLE_ALL,
-    completed
+    'completed': json.completed
   };
 }
 
@@ -65,13 +68,7 @@ export function requestGetState() {
 
 export function requestAddTodo(text) {
   return dispatch => {
-    const todo = {
-      'id': Date.now(),
-      text,
-      'completed': false
-    };
-
-    return fetchNewTodo(todo)
+    return fetchNewTodo(text)
     .then(response => {
       if (response.ok === false) {
         throw Error(response.statusText);
@@ -79,10 +76,9 @@ export function requestAddTodo(text) {
 
       return response;
     })
-    .then(() => dispatch(successAddTodo(todo)))
-    .catch(error => dispatch(
-      failureAction(`Failed to add ${todo.id}: ${todo.text} | ${error}`
-    )));
+    .then(response => response.json())
+    .then(json => dispatch(successAddTodo(json)))
+    .catch(error => dispatch(failureAction(`Failed to add ${text}`)));
   };
 }
 
@@ -96,7 +92,8 @@ export function requestToggleTodo(id, completed) {
 
       return response;
     })
-    .then(() => dispatch(successToggleTodo(id, completed)))
+    .then(response => response.json())
+    .then(json => dispatch(successToggleTodo(json)))
     .catch(error => dispatch(
       failureAction(`Failed to toggle todo: ${id} | ${error}`)));
   };
@@ -112,7 +109,8 @@ export function requestToggleAll(completed) {
 
       return response;
     })
-    .then(() => dispatch(successToggleAll(completed)))
+    .then(response => response.json())
+    .then(json => dispatch(successToggleAll(json)))
     .catch(error => dispatch(failureAction(
       `Failed to toggle all todos | ${error}`)));
   };

@@ -20,6 +20,7 @@ function TodoListRedux({todos, toggle}) {
           key={todo.id}
           id={todo.id}
           text={todo.text}
+          time={todo.time}
           completed={todo.completed}
           onClick={() => toggle(todo.id, !todo.completed)}
         />
@@ -30,9 +31,10 @@ function TodoListRedux({todos, toggle}) {
 
 TodoListRedux.propTypes = {
   'todos': PropTypes.arrayOf(PropTypes.shape({
-    'id': PropTypes.number.isRequired,
-    'completed': PropTypes.bool.isRequired,
-    'text': PropTypes.string.isRequired
+    'id': PropTypes.string.isRequired,
+    'text': PropTypes.string.isRequired,
+    'time': PropTypes.string.isRequired,
+    'completed': PropTypes.bool.isRequired
   }).isRequired).isRequired,
   'toggle': PropTypes.func.isRequired
 };

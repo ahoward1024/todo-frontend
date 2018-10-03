@@ -9,7 +9,7 @@ export function fetchGetState() {
   return fetch(urlGet, {'method': 'GET'});
 }
 
- export async function fetchNewTodo(todo) {
+ export async function fetchNewTodo(text) {
   let response = '';
   try {
     response = await fetch(urlAdd, {
@@ -18,9 +18,8 @@ export function fetchGetState() {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      'body': JSON.stringify({todo})
+      'body': JSON.stringify({text})
     });
-    console.log(response);
   } catch (exception) {
     console.log(`Error: ${exception}`);
   }
@@ -42,7 +41,6 @@ export async function fetchToggleTodo(id, completed) {
         completed
       })
     });
-    console.log(response);
   } catch (exception) {
     console.log(`Error: ${exception}`);
   }

@@ -9,16 +9,17 @@ import {
 function ReducerRedux(state, action) {
   switch (action.type) {
     case SUCCESS_GET_STATE:
-      console.log(action.state);
+      let checkall = false;
+      const server = action.state;
       const todos = [];
-      let checkall = state.checkall;
-      action.state.forEach(todo => {
-        if (todo['_id'] === 'checkall') {
-          checkall = todo.checkall;
+      for (let iter = 0; iter < server.length; iter += 1) {
+        const todo = server[iter];
+        if (todo.id === 'checkall') {
+          checkall = todo.completed;
         } else {
-          todos.push(todo.todo);
+          todos.push(todo);
         }
-      });
+      }
 
       return {
         checkall,
@@ -26,10 +27,16 @@ function ReducerRedux(state, action) {
       };
     case SUCCESS_ADD_TODO:
       return {
-        'checkall': state.checkall,
+        'checkall': false,
         'todos': [
           ...state.todos,
-          action.todo
+          {
+            '_id': action.id,
+            'id': action.id,
+            'text': action.text,
+            'time': action.time,
+            'completed': action.completed
+          }
         ]
       };
     case SUCCESS_TOGGLE_TODO:
