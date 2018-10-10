@@ -4,9 +4,9 @@ import {
   SUCCESS_TOGGLE_TODO,
   SUCCESS_TOGGLE_ALL,
   FAILURE_ACTION
-} from './ActionsRedux';
+} from './ReduxActions';
 
-function ReducerRedux(state, action) {
+function ReduxReducer(state, action) {
   switch (action.type) {
     case SUCCESS_GET_STATE:
       let checkall = false;
@@ -31,7 +31,6 @@ function ReducerRedux(state, action) {
         'todos': [
           ...state.todos,
           {
-            '_id': action.id,
             'id': action.id,
             'text': action.text,
             'time': action.time,
@@ -55,6 +54,8 @@ function ReducerRedux(state, action) {
           )
       };
     case SUCCESS_TOGGLE_ALL:
+      console.log('Success toggle all');
+
       return {
         'checkall': action.completed,
         'todos': state.todos.map(todo => {
@@ -73,4 +74,4 @@ function ReducerRedux(state, action) {
   }
 }
 
-export default ReducerRedux;
+export default ReduxReducer;

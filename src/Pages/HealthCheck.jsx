@@ -1,8 +1,9 @@
 import React from 'react';
-import config from './config';
+import config from '../config';
 
 const URL = config.TODO_URL_HEALTHCHECK;
-const successMessage = '✔️ The server is up! 👌';
+export const successMessage = '✔️ The server is up! 👌';
+export const errorMessage = '❌ Error 👎';
 
 class HealthCheck extends React.Component {
   // We need to cancel the asyncronous task if the component is being
@@ -16,29 +17,44 @@ class HealthCheck extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {'message': 'Checking...'};
-    this.getResponse = this.getResponse.bind(this);
+    this.state = {
+      'message': 'Checking...',
+      'status': ''
+    };
   }
 
-  async getResponse() {
-    let message = 'Checking...';
-    try {
-      const response = await fetch(URL, {'method': 'GET'});
-      const status = await response.status;
-      if (!this.isCancelled && status === 200) {
-        message = successMessage;
-      }
-    } catch (exception) {
-      console.log(`Health Check Fail: ${exception}`);
-      message = 'Error: '.concat(exception.toString());
-    }
-    if (!this.isCancelled) {
-      this.setState({message});
-    }
+  static async getResponse() {
+    const response = await fetch(URL, {'method': 'GET'});
+
+    return response;
   }
 
   componentDidMount() {
-    this.getResponse();
+    return HealthCheck.getResponse()
+    .then(response => {
+      let message = '';
+      if (response.status === 200) {
+        message = successMessage;
+      } else {
+        message = errorMessage;
+      }
+      if (!this.isCancelled) {
+        this.setState({
+          message,
+          'status': response.status_text
+        });
+      }
+    })
+    .catch(exception => {
+      console.log(exception);
+      if (!this.isCancelled) {
+        const error = exception.toString();
+        this.setState({
+          'message': errorMessage,
+          'status': error
+        });
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -59,7 +75,12 @@ class HealthCheck extends React.Component {
         <p
           className="Server-Message-Animation"
           style={style}
-        >{this.state.message}</p>
+        >
+          {this.state.message}
+        </p>
+        <p style={{'color': 'red'}}>
+          {this.state.status}
+        </p>
       </div>
     );
   }

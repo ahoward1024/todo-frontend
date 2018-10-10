@@ -2,22 +2,22 @@ import React from 'react';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import AppRedux from './AppRedux';
-import ReducerRedux from './ReducerRedux';
+import ReduxApp from './ReduxApp';
+import ReduxReducer from './ReduxReducer';
 
 const initialState = {
   'checkall': false,
   'todos': []
 };
 
-export const store = createStore(ReducerRedux, initialState, applyMiddleware(thunk));
+export const store = createStore(ReduxReducer, initialState, applyMiddleware(thunk));
 
-function indexRedux() {
+function ReduxIndex() {
   return (
     <Provider store={store}>
-     <AppRedux />
+     <ReduxApp />
     </Provider>
   );
 }
 
-export default indexRedux;
+export default ReduxIndex;

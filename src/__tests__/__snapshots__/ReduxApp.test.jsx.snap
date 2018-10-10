@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReduxApp testing Create ReduxApp component 1`] = `
+<div>
+  <h1
+    className="H1-Animation"
+  >
+    Todo
+  </h1>
+  <div
+    className="AddTodo"
+  >
+    <input
+      className="AddTodoInput"
+      onChange={[Function]}
+      placeholder=""
+    />
+     
+    <button
+      className="AddTodoButton"
+      onClick={[Function]}
+    >
+      Add Todo
+    </button>
+  </div>
+  <div
+    className="CheckboxCheckAll"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label>
+      Check All
+    </label>
+  </div>
+  <div
+    className="Todo"
+  />
+</div>
+`;

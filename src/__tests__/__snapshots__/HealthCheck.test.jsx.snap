@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HealthCheck testing Create HealthCheck component 1`] = `
+<div
+  align="center"
+>
+  <h1
+    className="H1-Animation"
+  >
+    Health Check
+  </h1>
+  <p
+    className="Server-Message-Animation"
+    style={
+      Object {
+        "color": "white",
+      }
+    }
+  >
+    Checking...
+  </p>
+  <p
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    
+  </p>
+</div>
+`;
