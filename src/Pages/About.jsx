@@ -5,11 +5,47 @@ function About() {
     <div>
       <h1 className="H1-Animation">About</h1>
       <p className="Paragraph-Animation">
-         Sed quam nunc, luctus interdum vehicula vitae, scelerisque quis leo. Pellentesque in ornare arcu, viverra fermentum quam. Suspendisse potenti. Ut venenatis congue dolor, ac feugiat dui euismod in. Vestibulum eu libero sit amet lacus blandit tincidunt ac eu eros. Nulla ut laoreet tortor. Phasellus varius mauris dolor, a lobortis enim finibus ac. Quisque in tortor semper, lobortis justo nec, fermentum velit. Etiam nec ornare nibh.
-         </p>
-        <p className="Paragraph-Animation">
-          Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras eget viverra est. Duis et finibus lorem. Aenean ut metus urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum condimentum, risus vel malesuada suscipit, mauris massa accumsan nisl, sit amet porttitor elit dui eu dolor. Cras vitae molestie tortor. Vestibulum dictum massa eu urna suscipit, in ultrices ex egestas.
-      </p>
+        This is a project I put together to learn about full stack development. The <a href="https://github.com/ahoward1024/todo-frontend">frontend</a> and <a href="https://github.com/ahoward1024/todo-backend">backend</a> are deployed to two seperate <a href="https://heroku.com">Heroku</a> instances.
+        </p>
+        <div style={{'display': 'inline-block'}}>
+          <div style={{
+            'float': 'left',
+            'textAlign': 'left',
+          'width': '50%'
+          }}>
+            <p>Frontend</p>
+            <ul>
+              <li><a href="https://npmjs.com">npm</a></li>
+              <li><a href="https://webpack.js.org">webpack</a></li>
+              <li><a href="https://github.com/facebook/create-react-app">create-react-app</a></li>
+              <li><a href="https://reactjs.org/">React</a></li>
+              <li><a href="https://redux.js.org/">Redux</a></li>
+              <li><a href="https://github.com/reduxjs/redux-thunk">Redux-Thunk</a></li>
+              <li><a href="https://jestjs.io/">Jest</a></li>
+              <li><a href="https://airbnb.io/enzyme/">Enzyme</a></li>
+              <li><a href="https://sinonjs.org/">Sinon</a></li>
+              <li><a href="https://github.com/jefflau/jest-fetch-mock">Jest-Fetch-Mock</a></li>
+              <li><a href="https://github.com/dmitry-zaets/redux-mock-store">Redux-Mock-Store</a></li>
+            </ul>
+          </div>
+          <div style={{
+            'float': 'right',
+            'text-align': 'left',
+            'width': '50%'
+          }}>
+            <p>Backend</p>
+            <ul>
+              <li><a href="https://www.python.org/">Python</a></li>
+              <li><a href="https://pipenv.readthedocs.io/en/latest/">Pipenv</a></li>
+              <li><a href="http://flask.pocoo.org/">Flask</a></li>
+              <li><a href="https://docs.pytest.org/en/latest/">pytest</a></li>
+              <li><a href="https://pypi.org/project/pytest-cov/">pytest-cov</a></li>
+              <li><a href="https://pypi.org/project/pytest-mongodb/">pytest-mongodb</a></li>
+              <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+              <li><a href="https://mlab.com/">mLab</a></li>
+            </ul>
+          </div>
+        </div>
     </div>
   );
 }
