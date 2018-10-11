@@ -54,8 +54,6 @@ function ReduxReducer(state, action) {
           )
       };
     case SUCCESS_TOGGLE_ALL:
-      console.log('Success toggle all');
-
       return {
         'checkall': action.completed,
         'todos': state.todos.map(todo => {

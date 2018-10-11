@@ -10,18 +10,21 @@ exports[`ReduxApp testing Create ReduxApp component 1`] = `
   <div
     className="AddTodo"
   >
-    <input
-      className="AddTodoInput"
-      onChange={[Function]}
-      placeholder=""
-    />
-     
-    <button
-      className="AddTodoButton"
-      onClick={[Function]}
+    <form
+      onSubmit={[Function]}
     >
-      Add Todo
-    </button>
+      <input
+        className="AddTodoInput"
+        placeholder="What needs to be done?"
+      />
+       
+      <button
+        className="AddTodoButton"
+        type="submit"
+      >
+        Add Todo
+      </button>
+    </form>
   </div>
   <div
     className="CheckboxCheckAll"

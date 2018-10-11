@@ -58,68 +58,66 @@ export function failureAction(message) {
 // ======== PUBLIC INTERFACE ======== //
 export function requestGetState() {
   return dispatch => {
-    return fetchGetState().then(
-      response => {
-        if (response.ok) {
-          dispatch(successGetState(response.json()));
-        } else {
-          dispatch(failureAction(`Failure to toggle all todos: ${response.status}`));
+    return fetchGetState()
+    .then(response => {
+        if (response.ok === false) {
+          throw Error('Response not ok');
         }
 
         return response;
-      },
-      error => dispatch(failureAction('Failure to toggle all todos'))
-    );
+      }
+    )
+    .then(response => response.json())
+    .then(json => dispatch(successGetState(json)))
+    .catch(exception => dispatch(failureAction(`${exception}`)));
   };
 }
 
 export function requestAddTodo(text) {
   return dispatch => {
-    return fetchAddTodo(text).then(
-      response => {
-        if (response.ok) {
-          dispatch(successAddTodo(response.json()));
-        } else {
-          dispatch(failureAction(`Failure to toggle all todos: ${response.status}`));
+    return fetchAddTodo(text)
+    .then(response => {
+        if (response.ok === false) {
+          throw Error('Response not ok');
         }
 
         return response;
-      },
-      error => dispatch(failureAction('Failure to toggle all todos'))
-    );
+      }
+    )
+    .then(response => response.json())
+    .then(json => dispatch(successAddTodo(json)))
+    .catch(exception => dispatch(failureAction(`${exception}`)));
   };
 }
 
 export function requestToggleTodo(id, completed) {
   return dispatch => {
-    return fetchToggleTodo(completed).then(
-      response => {
-        if (response.ok) {
-          dispatch(successToggleTodo(id, completed));
-        } else {
-          dispatch(failureAction(`Failure to toggle all todos: ${response.status}`));
+    return fetchToggleTodo(id, completed)
+    .then(response => {
+        if (response.ok === false) {
+          throw Error('Response not ok');
         }
 
         return response;
-      },
-      error => dispatch(failureAction('Failure to toggle all todos'))
-    );
+      }
+    )
+    .then(() => dispatch(successToggleTodo(id, completed)))
+    .catch(exception => dispatch(failureAction(`${exception}`)));
   };
 }
 
 export function requestToggleAll(completed) {
   return dispatch => {
-    return fetchToggleAll(completed).then(
-      response => {
-        if (response.ok) {
-          dispatch(successToggleAll(completed));
-        } else {
-          dispatch(failureAction(`Failure to toggle all todos: ${response.status}`));
+    return fetchToggleAll(completed)
+    .then(response => {
+        if (response.ok === false) {
+          throw Error('Response not ok');
         }
 
         return response;
-      },
-      error => dispatch(failureAction('Failure to toggle all todos'))
-    );
+      }
+    )
+    .then(() => dispatch(successToggleAll(completed)))
+    .catch(exception => dispatch(failureAction(`${exception}`)));
   };
 }

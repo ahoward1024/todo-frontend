@@ -10,33 +10,37 @@ import ConnectedAddTodo, {AddTodo} from '../Pages/Todo/AddTodo';
 Enzyme.configure({'adapter': new Adapter()});
 
 describe('ADDTODO : Testing ==REACT== component', () => {
-  let wrapper = '';
+  let wrapper = {};
   const dispatch = jest.fn();
   beforeEach(() => {
-    wrapper = shallow(<AddTodo/>);
+    wrapper = shallow(<AddTodo dispatch={dispatch}/>);
   });
 
   test('Test if ==REACT== component did render', () => {
     expect(wrapper.length).toEqual(1);
   });
+});
 
-  test('Test ==REACT== onChange', () => {
-    const text = 'test text';
-    const event = {'target': {'value': text}};
-    wrapper.find('input').simulate('change', event);
-    expect(wrapper.state('text')).toEqual(text);
+describe('ADDTODO : Testing mount component', () => {
+  let wrapper = {};
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    wrapper = mount(<AddTodo dispatch={dispatch}/>);
   });
 
-  test('Test ==REACT== onClick with empty state', () => {
-    expect(wrapper.state('text')).toEqual('');
-    wrapper.find('button').simulate('click');
+  test('Test component did mount', () => {
+    expect(wrapper.length).toEqual(1);
   });
 
-  test('Test ==REACT== onClick with set state', () => {
-    const text = 'test text';
-    const event = {'target': {'value': text}};
-    wrapper.find('input').simulate('change', event);
-    expect(wrapper.state('text')).toEqual(text);
-    wrapper.find('button').simulate('click');
+  test('Test call on submit with empty (initial) text', () => {
+    wrapper.find('form').simulate('submit');
+    expect(dispatch.mock.calls.length).toBe(0);
+  });
+
+  test('Test call on submit with actual text', () => {
+    wrapper.find('input').instance().value = 'test text';
+    wrapper.find('form').simulate('submit');
+    expect(dispatch.mock.calls.length).toBe(1);
   });
 });

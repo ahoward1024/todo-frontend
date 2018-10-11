@@ -16,7 +16,7 @@ export function Todo({id, text, time, completed}) {
       <input
         type="checkbox"
         checked={completed}
-        onChange={() => store.dispatch(requestToggleTodo(id, completed))}
+        onChange={() => store.dispatch(requestToggleTodo(id, !completed))}
       />
       <label style={{textDecoration}}>
         {text}

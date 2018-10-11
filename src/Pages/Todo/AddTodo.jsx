@@ -1,47 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {requestAddTodo} from './ReduxActions';
-import {store} from './ReduxIndex';
 
+export function AddTodo({dispatch}) {
+  let input = '';
 
-export class AddTodo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {'text': ''};
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onChange(event) {
-    const text = event.target.value;
-    this.setState({text});
-  }
-
-  onClick(event) {
-    if (this.state.text !== '') {
-      store.dispatch(requestAddTodo(this.state.text));
-    }
-  }
-
-  render() {
-    return (
-      <div className="AddTodo">
+  return (
+    <div className="AddTodo">
+      <form onSubmit={event => {
+        event.preventDefault();
+        if (!input.value.trim()) {
+          return;
+        }
+        dispatch(requestAddTodo(input.value));
+        input.value = '';
+      }}>
         <input
           className="AddTodoInput"
           placeholder="What needs to be done?"
-          onChange={this.onChange}
+          ref={node => input = node}
         />
         &nbsp;
         <button
           className="AddTodoButton"
-          onClick={this.onClick}
+          type="submit"
         >
           Add Todo
         </button>
-      </div>
-    );
-  }
+      </form>
+    </div>
+  );
 };
 
+AddTodo.propTypes = {'dispatch': PropTypes.func.isRequired};
 
 export default connect()(AddTodo);
