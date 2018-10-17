@@ -14,4 +14,4 @@ lint:
 
 test:
 	@echo 'Running tests'
-	npm test -- --coverage
+	npm test -- --coverage --coverageReporters=text-lcov | node_modules/.bin/coveralls
