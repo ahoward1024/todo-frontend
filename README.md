@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ahoward1024/todo-frontend.svg?branch=master)](https://travis-ci.org/ahoward1024/todo-frontend)
+[![Coverage Status](https://coveralls.io/repos/github/ahoward1024/todo-frontend/badge.svg?branch=master)](https://coveralls.io/github/ahoward1024/todo-frontend?branch=master)
 
 # TODO
 
