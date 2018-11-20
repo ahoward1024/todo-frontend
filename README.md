@@ -7,7 +7,7 @@ A simple todo list written as an exercise in full stack development.
 Written with Node.js modules, React.js, and Flask.
 
 The python backend is located [here](https://github.com/ahoward1024/todo-backend)
-The application can be previewed [here](https://powerful-brook-25233.herokuapp.com)
+The application can be previewed [here](https://ahoward1024todo.herokuapp.com)
 
 # Initial setup
 
