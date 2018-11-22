@@ -61,7 +61,7 @@ export function requestGetState() {
     return fetchGetState()
     .then(response => {
         if (response.ok === false) {
-          throw Error('Response not ok');
+          throw Error(`Could not initial get state from server | ${response.statusText}`);
         }
 
         return response;
@@ -78,7 +78,7 @@ export function requestAddTodo(text) {
     return fetchAddTodo(text)
     .then(response => {
         if (response.ok === false) {
-          throw Error('Response not ok');
+          throw Error(`Could not add todo | ${response.statusText}`);
         }
 
         return response;
@@ -95,7 +95,7 @@ export function requestToggleTodo(id, completed) {
     return fetchToggleTodo(id, completed)
     .then(response => {
         if (response.ok === false) {
-          throw Error('Response not ok');
+          throw Error(`Could not toggle todo | ${response.statusText}`);
         }
 
         return response;
@@ -111,7 +111,7 @@ export function requestToggleAll(completed) {
     return fetchToggleAll(completed)
     .then(response => {
         if (response.ok === false) {
-          throw Error('Response not ok');
+          throw Error(`Could not toggle all todos | ${response.statusText}`);
         }
 
         return response;
