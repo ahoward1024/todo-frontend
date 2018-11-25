@@ -36,4 +36,6 @@ MongoDB Python tutorial - http://api.mongodb.com/python/current/tutorial.html#tu
 
 Ohans Emmanuel - https://medium.freecodecamp.org/understanding-redux-the-worlds-easiest-guide-to-beginning-redux-c695f45546f6
 
+Morningtrain - https://codepen.io/Morningtrain/# for the wonderful loading cube animation
+
 And of course the Redux official examples - https://github.com/reduxjs/redux/tree/master/examples

@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import ReduxApp from './ReduxApp';
 import ReduxReducer from './ReduxReducer';
 
-const initialState = {
+export const initialState = {
   'checkall': false,
   'todos': []
 };

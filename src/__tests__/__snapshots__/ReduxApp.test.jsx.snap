@@ -7,39 +7,26 @@ exports[`ReduxApp testing Create ReduxApp component 1`] = `
   >
     Todo
   </h1>
-  <div
-    className="AddTodo"
-  >
-    <form
-      onSubmit={[Function]}
+  <div>
+    <div
+      className="cssload-thecube"
     >
-      <input
-        className="AddTodoInput"
-        placeholder="What needs to be done?"
+      <div
+        className="cssload-cube cssload-c1"
       />
-       
-      <button
-        className="AddTodoButton"
-        type="submit"
-      >
-        Add Todo
-      </button>
-    </form>
+      <div
+        className="cssload-cube cssload-c2"
+      />
+      <div
+        className="cssload-cube cssload-c4"
+      />
+      <div
+        className="cssload-cube cssload-c3"
+      />
+    </div>
+    <p>
+      Loading
+    </p>
   </div>
-  <div
-    className="CheckboxCheckAll"
-  >
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label>
-      Check All
-    </label>
-  </div>
-  <div
-    className="Todo"
-  />
 </div>
 `;

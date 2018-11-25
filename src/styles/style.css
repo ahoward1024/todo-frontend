@@ -81,9 +81,8 @@ a:active {
   width: 75%;
 }
 
-.DropDatabase {
+.errorMessage {
   color: red;
-  align: center;
 }
 
 @keyframes SlideFromLeftAndFadeIn {
